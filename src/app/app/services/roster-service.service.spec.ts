@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import 'jasmine';
 
 import { RosterServiceService } from './roster-service.service';
 
@@ -7,7 +8,7 @@ describe('RosterServiceService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(RosterServiceService);
+    rosterService = TestBed.inject(RosterServiceService);
   });
 
   beforeEach(inject([RosterServiceService],           
@@ -16,7 +17,7 @@ describe('RosterServiceService', () => {
   }));
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(rosterService).toBeTruthy();
   });
   
   it('should allow adding players', () => {
