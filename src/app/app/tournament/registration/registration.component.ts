@@ -19,11 +19,35 @@ export class RegistrationComponent implements OnInit {
 
   
   ngOnInit() {
-    this.players = this.rosterService.getContestants();
+    
+    this.players = rosterService.getcontestants();
+console.log('this.players assignment to contestants);
   }
 
-   registerContestants() {
+registerContestants() {
+   var validcount:int = 0;
+  for (var i = 0; i <  8; ++i) {
+   if (this.players[i]) {
 
+      var inserted:boolean =  rosterService.addContestant(this.player[i]);
+      if (inserted) {
+         console.log("record registered");
+      ] ELSE {
+
+         CONSOLE.LOG("INVALID MEMBER");
+      }
    }
+
+  }
+   
+  if (this.players.length  % 2 == 1) {
+     console.log("PLayes should be 2,4 or 8");
+
+  }
+}
+}
+
+  
+
 
 }
