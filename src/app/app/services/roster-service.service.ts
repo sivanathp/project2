@@ -5,5 +5,22 @@ import { Injectable } from '@angular/core';
 })
 export class RosterServiceService {
 
+  private contestants: String[];
   constructor() { }
+  
+  getContestants(): String[] {
+  return this.contestants;
+  }
+
+  addContestant(player: String) {
+    let foundPlayer= this.contestants.find(player);
+    if (foundPlayer) {
+      return false;
+    }
+    this.contestants.push(player);
+    return true;
+  }
+
+
+  
 }

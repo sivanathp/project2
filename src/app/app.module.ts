@@ -10,9 +10,9 @@ import { BracketsComponent } from './app/tournament/brackets/brackets.component'
 @NgModule({
   declarations: [
     AppComponent,
-    HelloComponent,
-    RegistrationComponent,
-    BracketsComponent
+HelloComponent,
+RegistrationComponent,
+BracketsComponent
   ],
   imports: [
     BrowserModule,
