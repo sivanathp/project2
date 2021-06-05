@@ -13,7 +13,7 @@ export class RosterServiceService {
   }
 
   addContestant(player: String) {
-    let foundPlayer= this.contestants.find(player);
+    let foundPlayer= this.contestants.find(each => each === player );
     if (foundPlayer) {
       return false;
     }

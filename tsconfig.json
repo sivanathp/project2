@@ -9,6 +9,7 @@
     "experimentalDecorators": true,
     "module": "esnext",
     "moduleResolution": "node",
+    "types": ["reflect-metadata", "jest"],
     "importHelpers": true,
     "target": "es2015",
     "lib": [
