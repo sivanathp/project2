@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { RosterServiceService } from 'app/services/rosterservice.service';
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor() { }
+  public players: string[]
+  public message: string;
 
-  ngOnInit(): void {
+  constructor(private rosterService: RosterServiceService) { 
+   this.players = ['','','','','','','',''];   
+   this.message = '';
+}
+
+  
+  ngOnInit() {
+    this.players = this.rosterService.getContestants();
   }
+
+   registerContestants() {
+
+   }
 
 }
