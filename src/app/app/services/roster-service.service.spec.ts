@@ -20,7 +20,6 @@ describe('RosterServiceService', () => {
   });
   
   it('should allow adding players', () => {
-    expect(rosterService.getContestants().length).toEqual(3); 
    let player:string = "new one";
     expect(rosterService.addContestant(player)).toBeTruthy();    
     expect(rosterService.getContestants().length).toEqual(4);      
