@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { RosterServiceService } from './app/services/roster-service.service';
 
 @Component({
@@ -9,7 +8,7 @@ import { RosterServiceService } from './app/services/roster-service.service';
 })
 export class RegistrationComponent implements OnInit {
 
-  public players: string[]
+  public players: string[];
   public message: string;
 
   constructor(rosterService: RosterServiceService) { 
@@ -29,7 +28,7 @@ registerContestants() {
   for (var i = 0; i <  8; ++i) {
    if (this.players[i]) {
 
-      var inserted:boolean =  rosterService.addContestant(this.player[i]);
+      var inserted:boolean =  rosterService.addContestant(this.players[i]);
       if (inserted) {
          console.log("record registered");
       } else {
