@@ -1,0 +1,43 @@
+git add .
+
+git commit -m "added more tests"
+
+git push
+
+git config --global user.name "Sivanath Peddakotla"
+git config --global user.email speddak1@my.westga.edu
+git config --global user.username sivanathp
+
+git remote add origin https://github.com/sivanathp/project2.git.
+
+7707316415 -- Sofiya
+
+ng new stock-market   -- To create new project
+ng serve              -- To run the server
+ng generate component player    -- To create a component
+
+ng generate class model/stock     -- To generate a class
+
+ng generate service servicename
+
+ng generate module app-routing
+
+ng serve
+
+ng build
+
+
+app/tournament
+
+ng generate component app/tournament/hello
+ng generate component app/tournament/registration
+ng generate component app/tournament/brackets
+
+npm install --save-dev @angular-devkit/build-angular
+
+npm install karma-firefox-launcher --save-dev
+npm install karma-spec-reporter --save-dev
+npm install karma-coverage --save-dev
+npm install karma-phantomjs-launcher --save-dev
+
+npm install --save-dev @types/jasmine
