@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RosterServiceService } from './app/services/ rosterService.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,7 +19,7 @@ BracketsComponent
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [RosterServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
