@@ -11,7 +11,7 @@ export class RosterServiceService {
 }
   
   getContestants(): String[] {
-  return this.contestants;
+    return this.contestants;
   }
 
   addContestant(player: String) {

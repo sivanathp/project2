@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RosterServiceService } from './app/services/roster-service.service';
+import { RosterServiceService } from '../../services/roster-service.service';
 
 @Component({
   selector: 'app-registration',
@@ -8,18 +8,20 @@ import { RosterServiceService } from './app/services/roster-service.service';
 })
 export class RegistrationComponent implements OnInit {
 
-  public players: string[];
+  public players: String[];
   public message: string;
+  rosterService:RosterServiceService;
 
   constructor(rosterService: RosterServiceService) { 
    this.players = ['','','','','','','',''];   
    this.message = '';
+   this.rosterService = rosterService;
 }
 
   
   ngOnInit() {
     
-    this.players = rosterService.getcontestants();
+    this.players = this.rosterService.getContestants();
 console.log('assignment to contestants');
   }
 
@@ -28,9 +30,10 @@ registerContestants() {
   for (var i = 0; i <  8; ++i) {
    if (this.players[i]) {
 
-      var inserted:boolean =  rosterService.addContestant(this.players[i]);
+      var inserted:boolean =  this.rosterService.addContestant(this.players[i]);
       if (inserted) {
          console.log("record registered");
+         this.message = "Players Registered";
       } else {
 
          console.log("INVALID MEMBER");
