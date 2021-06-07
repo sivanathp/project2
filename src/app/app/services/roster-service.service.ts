@@ -5,16 +5,16 @@ import { Injectable } from '@angular/core';
 })
 export class RosterServiceService {
 
-  private contestants: String[];
+  private contestants: string[];
   constructor() { 
    this.contestants = ['player1', 'player2', 'player3'];  
 }
   
-  getContestants(): String[] {
+  getContestants(): string[] {
     return this.contestants;
   }
 
-  addContestant(player: String) {
+  addContestant(player: string) {
     if (player) {
          
 let foundPlayer= this.contestants.find(each => each === player );

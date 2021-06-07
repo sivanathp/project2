@@ -8,7 +8,7 @@ import { RosterServiceService } from '../../services/roster-service.service';
 })
 export class RegistrationComponent implements OnInit {
 
-  public players: String[];
+  public players: string[];
   public message: string;
   rosterService:RosterServiceService;
 
@@ -22,12 +22,16 @@ export class RegistrationComponent implements OnInit {
   ngOnInit() {
     
     this.players = this.rosterService.getContestants();
-console.log('assignment to contestants');
+    console.log('assignment to contestants');
   }
+
+trackByFn(index: any, item: any) {
+   return index;
+}
 
 registerContestants() {
    var validcount = 0;
-  for (var i = 0; i <  8; ++i) {
+  for (var i = 0; i < 8; ++i) {
    if (this.players[i]) {
 
       var inserted:boolean =  this.rosterService.addContestant(this.players[i]);
@@ -37,6 +41,7 @@ registerContestants() {
       } else {
 
          console.log("INVALID MEMBER");
+this.message = "INVALID MEMBER";  
       }
    }
 
@@ -44,6 +49,7 @@ registerContestants() {
    
   if (this.players.length  % 2 == 1) {
      console.log("PLayes should be 2,4 or 8");
+     this.message = "Playes should be 2,4 or 8";
 
   }
 }

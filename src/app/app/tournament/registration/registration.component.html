@@ -1,3 +1,10 @@
 <p>registration works!</p>
 
 <h1> registration component </h1>
+
+<div *ngFor="let value of players; let i=index; trackBy:trackByFn">
+    <input type="text" [(ngModel)]="players[i]"  /><br/>
+</div>
+<div>
+    <button (click)="registerContestants()">Click</button>
+</div>
