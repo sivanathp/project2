@@ -22,12 +22,12 @@ describe('RosterServiceService', () => {
   it('should allow adding players', () => {
    let player:string = "new one";
     expect(rosterService.addContestant(player)).toBeTruthy();    
-    expect(rosterService.getContestants().length).toEqual(4);      
-    expect(rosterService.getContestants()[3]).toEqual('new one')
+    expect(rosterService.getContestants().length).toEqual(1);      
+    expect(rosterService.getContestants()[0]).toEqual('new one')
   });
   
   it('should not allow duplicate names', () => {
-    expect(rosterService.getContestants().length).toEqual(3); 
+    expect(rosterService.getContestants().length).toEqual(0); 
    let player:string = "new one";
     expect(rosterService.addContestant(player)).toBeTruthy();    
 	
@@ -37,7 +37,7 @@ describe('RosterServiceService', () => {
   });
   
   it('should not allow null names', () => {
-    expect(rosterService.getContestants().length).toEqual(3); 
+    expect(rosterService.getContestants().length).toEqual(0); 
    
 	let newplayer:string = null;
 	expect(rosterService.addContestant(newplayer)).toBeFalsy();    
@@ -45,7 +45,7 @@ describe('RosterServiceService', () => {
   });
   
   it('should not allow empty string names', () => {
-    expect(rosterService.getContestants().length).toEqual(3); 
+    expect(rosterService.getContestants().length).toEqual(0); 
    let player:string = "";
     expect(rosterService.addContestant(player)).toBeFalsy();    
 	 
@@ -53,7 +53,7 @@ describe('RosterServiceService', () => {
   });
   
    it('should add one contestant', () => {
-    expect(rosterService.getContestants().length).toEqual(3); 
+    expect(rosterService.getContestants().length).toEqual(0); 
    let player:string = "player 1";
     expect(rosterService.addContestant(player)).toBeTruthy();    
 	 
@@ -61,7 +61,7 @@ describe('RosterServiceService', () => {
   });
   
   it('should add several contestants', () => {
-    expect(rosterService.getContestants().length).toEqual(3); 
+    expect(rosterService.getContestants().length).toEqual(0); 
    let player:string = "player 1";
    let player2:string = "player 2";
    let player3:string = "player 3";
