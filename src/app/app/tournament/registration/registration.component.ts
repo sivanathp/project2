@@ -49,8 +49,8 @@ this.message = "INVALID MEMBER";
    }
 
   }
-   console.log('How many Times');
-  if (this.players.length  % 2 == 1) {
+   console.log('How many Total' + this.rosterService.getContestants());
+  if (this.rosterService.getContestants().length  % 2 == 1) {
      console.log("Playes should be 2,4 or 8");
      this.message = "Playes should be 2,4 or 8";
 

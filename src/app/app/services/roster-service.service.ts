@@ -7,7 +7,7 @@ export class RosterServiceService {
 
   private contestants: string[];
   constructor() { 
-   this.contestants = ['','','','','','','',''];  
+   this.contestants = [];  
 }
   
   getContestants(): string[] {
@@ -22,7 +22,7 @@ let foundPlayer= this.contestants.find(each => each === player);
       console.log('CAme to duplicate member');
       return false;
     }
-    this.contestants.unshift(player);
+    this.contestants.push(player);
     return true;
    } else {
    return false;
