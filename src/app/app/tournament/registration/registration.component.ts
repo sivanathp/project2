@@ -21,7 +21,7 @@ export class RegistrationComponent implements OnInit {
   
   ngOnInit() {
     
-    this.players = this.rosterService.getContestants();
+    //this.players = this.rosterService.getContestants();
     console.log('assignment to contestants');
   }
 
@@ -49,9 +49,9 @@ this.message = "INVALID MEMBER";
    }
 
   }
-   
+   console.log('How many Times');
   if (this.players.length  % 2 == 1) {
-     console.log("PLayes should be 2,4 or 8");
+     console.log("Playes should be 2,4 or 8");
      this.message = "Playes should be 2,4 or 8";
 
   }
