@@ -30,8 +30,11 @@ trackByFn(index: any, item: any) {
 }
 
 registerContestants() {
+   console.log('PLayers are ' + this.players);
    var validcount = 0;
   for (var i = 0; i < 8; ++i) {
+   console.log('Trying for ' + this.players[i]);
+  
    if (this.players[i]) {
 
       var inserted:boolean =  this.rosterService.addContestant(this.players[i]);
