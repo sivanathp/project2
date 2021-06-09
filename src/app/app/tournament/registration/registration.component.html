@@ -3,7 +3,7 @@
 <h1> registration component </h1>
 
 <div *ngFor="let value of players; let i=index; trackBy:trackByFn">
-    <input type="text" [(ngModel)]="players[i]"  /><br/>
+    <input type="text" [(ngModel)]="players[i]" [placeholder]="['Contestant ' + i]" /><br/>
 </div>
 <div>
     <button (click)="registerContestants()">Click</button>
