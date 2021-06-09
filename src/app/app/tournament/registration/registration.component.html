@@ -6,6 +6,9 @@
 </div>
 <div>
     <button (click)="registerContestants()">Register Contestants</button>
+    <div *ngIf="message">
+  <Label>{{message}}</Label>
+</div>
 </div>
 
 <div>
