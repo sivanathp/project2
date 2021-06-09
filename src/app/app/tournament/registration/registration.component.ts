@@ -32,22 +32,29 @@ trackByFn(index: any, item: any) {
 registerContestants() {
    console.log('PLayers are ' + this.players);
    var validcount = 0;
-  for (var i = 0; i < 8; ++i) {
-   console.log('Trying for ' + this.players[i]);
-  
-   if (this.players[i]) {
+ 
+  if (this.players.filter(Boolean).length % 2 == 1) {
+     console.log("Playes should be 2,4 or 8");
+     this.message = "Playes should be 2,4 or 8";
+  } else {
+   
+	  for (var i = 0; i < 8; ++i) {
+	   console.log('Trying for ' + this.players[i]);
+	  
+	   if (this.players[i]) {
 
-      var inserted:boolean =  this.rosterService.addContestant(this.players[i]);
-      if (inserted) {
-         console.log("record registered");
-         this.message = "Players Registered";
-      } else {
+	      var inserted:boolean =  this.rosterService.addContestant(this.players[i]);
+	      if (inserted) {
+		 console.log("record registered");
+		 this.message = "Players Registered";
+	      } else {
 
-         console.log("INVALID MEMBER");
-this.message = "INVALID MEMBER";  
-      }
-   }
+		 console.log("INVALID MEMBER");
+	this.message = "INVALID MEMBER";  
+	      }
+	   }
 
+	  }
   }
    console.log('How many Total' + this.rosterService.getContestants());
   if (this.rosterService.getContestants().length  % 2 == 1) {
