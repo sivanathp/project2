@@ -29,6 +29,10 @@ let foundPlayer= this.contestants.find(each => each === player);
    }
   }
 
+  clearContestants() {
+    this.contestants = [];
+  }
+
 
   
 }

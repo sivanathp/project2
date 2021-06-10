@@ -37,7 +37,7 @@ registerContestants() {
      console.log("Playes should be 2,4 or 8");
      this.message = "Playes should be 2,4 or 8";
   } else {
-   
+   this.rosterService.clearContestants();
 	  for (var i = 0; i < 8; ++i) {
 	   console.log('Trying for ' + this.players[i]);
 	  
