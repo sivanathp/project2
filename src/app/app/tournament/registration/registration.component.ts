@@ -63,5 +63,18 @@ registerContestants() {
 
   }
 }
+
+autofill2() {
+	this.players = new Array('Ajna','Lewis','','','','','','');
+}
+
+autofill4() {
+	this.players = new Array('Ajna','Lewis','Li','Orsega','','','','');
+}
+
+autofill8() {
+	this.players = new Array('Ajna','Lewis','Li','Orsega','Cindy','Yord','Alex','Kyle');
+}
+
 }
 
