@@ -1,22 +1,32 @@
 <p>brackets works!</p>
 <h1> brackets component </h1>
 <div >
-    
+    <Label>Game 1</Label>
     <input type="radio" name="game1" value=game1.player1>{{game1.player1}}
     <input type="radio" name="game1" value=game1.player2>{{game1.player2}}
+    <br>
 </div>
 <div >
-    
+    <Label>Game 2</Label>
     <input type="radio" name="game2" value={{game2.player1}}>{{game2.player1}}
     <input type="radio" name="game2" value={{game2.player2}}>{{game2.player2}}
+    <br>
 </div>
 <div >
-    
+    <Label>Game 3</Label>
     <input type="radio" name="game3" value={{game3.player1}}>{{game3.player1}}
     <input type="radio" name="game3" value={{game3.player1}}>{{game3.player2}}
+    <br>
 </div>
 <div >
-    
+    <Label>Game 4</Label>
     <input type="radio" name="game4" value={{game4.player1}}>{{game4.player1}}
     <input type="radio" name="game4" value={{game4.player1}}>{{game4.player2}}
+    <br>
+</div>
+
+<div>
+    <button (click)="registerContestants()">Cmplete Round </button>
+    <div *ngIf="message">
+  <Label>{{message}}</Label>
 </div>
