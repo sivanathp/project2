@@ -1,2 +1,5 @@
 <p>brackets works!</p>
 <h1> brackets component </h1>
+<div *ngFor="let value of players; let i=index; trackBy:trackByFn">
+    <input type="text" [(ngModel)]="players[i]" [placeholder]="['Contestant ' + i]" /><br/>
+</div>
