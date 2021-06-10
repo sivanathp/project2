@@ -22,4 +22,44 @@ describe('RegistrationComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
+    it('should not allow 1 contestants', () => {
+   
+    component.players = new Array('new one');
+	component.registerContestants();
+    expect(component.rosterService.getContestants().length).toEqual(0);   
+    
+  });
+  
+  it('should not allow 3 contestants', () => {
+   
+    component.players = new Array('new one','Second', 'Third');
+	component.registerContestants();
+    expect(component.rosterService.getContestants().length).toEqual(0);   
+    
+  });
+  
+  it('should not allow 5 contestants', () => {
+   
+    component.players = new Array('new one','Second', 'Third','Four','Fifth');
+	component.registerContestants();
+    expect(component.rosterService.getContestants().length).toEqual(0);   
+    
+  });
+  
+  it('should allow 2,4,8 contestants', () => {
+   
+    component.players = new Array('new one','Second');
+	component.registerContestants();
+	expect(component.rosterService.getContestants().length).toEqual(2);   
+	
+	component.players = new Array('new one','Second', 'Third','Four');
+    component.registerContestants();
+	expect(component.rosterService.getContestants().length).toEqual(4);   
+	
+	component.players = new Array('new one','Second', 'Third','Four','Five','Six','Seven','Eight');
+    component.registerContestants();
+	expect(component.rosterService.getContestants().length).toEqual(8);   
+	
+  });
 });
