@@ -120,6 +120,11 @@ export class BracketsComponent implements OnInit {
   }
 
   completeRound() {
+
+     console.log("this.game1.playerWon " + this.game1.playerWon);
+     console.log("this.game2.playerWon " + this.game2.playerWon);
+     console.log("this.game3.playerWon " + this.game3.playerWon);
+     console.log("this.game4.playerWon " + this.game4.playerWon);
     if (this.totalGames = 4) {
       if (!this.game1.playerWon || !this.game2.playerWon || !this.game3.playerWon || !this.game4.playerWon) {
         console.log("Set winner for all matches");
@@ -136,6 +141,10 @@ export class BracketsComponent implements OnInit {
         return false;
       } 
       this.players = [this.game1.playerWon , this.game2.playerWon ];
+    }
+
+    if (this.roundNumber == 1) {
+      this.setSecondRound();
     }
 
     if (this.totalGames = 1) {
