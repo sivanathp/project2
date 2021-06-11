@@ -50,8 +50,8 @@ export class BracketsComponent implements OnInit {
    }	   
 
    setSecondRound() {
-     if (this.completeRound){
-
+      console.log("In second round");
+      console.log("players" + this.players);
       if (this.players.length == 4) {
         this.totalGames = 2;
        } else if (this.players.length == 2) {
@@ -59,18 +59,16 @@ export class BracketsComponent implements OnInit {
        } 
        this.roundNumber = 2;
 
-     }
+    
      this.setGames();
     
   }	
 
   setThirdRound() {
-    if (this.completeRound){
-
+    
        this.totalGames = 1;
        this.roundNumber = 3;
 
-     }
      this.setGames();
     
   }	
@@ -84,6 +82,7 @@ export class BracketsComponent implements OnInit {
   }
 
   setGames() {
+    this.resetGames();
     if (this.totalGames = 4) {
       this.game1.player1 = this.players[0];
       this.game1.player2 = this.players[1];
@@ -118,36 +117,53 @@ export class BracketsComponent implements OnInit {
     }
 
   }
-
+  
+  resetGames() {
+    this.game1 = new Game();
+    this.game2 = new Game();
+    this.game3 = new Game();
+    this.game4 = new Game();
+  }
   completeRound() {
 
      console.log("this.game1.playerWon " + this.game1.playerWon);
      console.log("this.game2.playerWon " + this.game2.playerWon);
      console.log("this.game3.playerWon " + this.game3.playerWon);
      console.log("this.game4.playerWon " + this.game4.playerWon);
-    if (this.totalGames = 4) {
-      if (!this.game1.playerWon || !this.game2.playerWon || !this.game3.playerWon || !this.game4.playerWon) {
-        console.log("Set winner for all matches");
-        this.message = 'Set winner for all matches';
+    if (this.totalGames == 4) {
+      if (!this.game1.playerWon && !this.game2.playerWon && !this.game3.playerWon && !this.game4.playerWon) {
+        console.log("Set winner for Four matches");
+        this.message = 'Set winner for four matches';
         return false;
       } 
+      console.log("Setting winner for Four matches");
       this.players = [this.game1.playerWon , this.game2.playerWon , this.game3.playerWon , this.game4.playerWon];
+      
     }
 
-    if (this.totalGames = 2) {
-      if (!this.game1.playerWon || !this.game2.playerWon ) {
-        console.log("Set winner for all matches");
-        this.message = 'Set winner for all matches';
+    if (this.totalGames == 2) {
+      if (!this.game1.playerWon && !this.game2.playerWon ) {
+        console.log("Set winner for two matches");
+        this.message = 'Set winner for two matches';
         return false;
       } 
+      console.log("Setting winner for two matches");
       this.players = [this.game1.playerWon , this.game2.playerWon ];
     }
 
-    if (this.roundNumber == 1) {
+    if ((this.roundNumber == 1) && (this.totalGames > 1)) {
+      console.log("players" + this.players);
       this.setSecondRound();
+      return true;
     }
 
-    if (this.totalGames = 1) {
+    if ((this.roundNumber == 2) && (this.totalGames > 1)) {
+      console.log("players" + this.players);
+      this.setThirdRound();
+      return true;
+    }
+
+    if (this.totalGames == 1) {
       if (!this.game1.playerWon ) {
         console.log("Set winner for the match");
         this.message = 'Set winner for all match';
@@ -156,6 +172,7 @@ export class BracketsComponent implements OnInit {
       
       this.winner = this.game1.playerWon;
     }
+    
     return true;
   }
 
@@ -165,3 +182,4 @@ trackByFn(index: any, item: any) {
    return index;
 }
 }
+
