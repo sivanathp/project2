@@ -1,8 +1,8 @@
 <p>brackets works!</p>
 <h1> brackets component </h1>
 <h2>Round number {{roundNumber}}</h2>
-<div >
-   
+<div *ngIf="game1.player1">
+    <Label>Game 1</Label>
         <input type="radio" value=game1.player1 name = "game1" (click)="game1.setWinner(game1.player1)" required class="primary" ng-model="game1.playerWon" >{{game1.player1}}
         <input type="radio" value=game1.player2 name = "game1" (click)="game1.setWinner(game1.player2)" required ng-model="game1.playerWon" >{{game1.player2}}
    
@@ -31,8 +31,11 @@
     <br>
 </div>
 
-<div>
+<div *ngIf="game1.player1">
     <button (click)="completeRound()">Complete Round </button>
-    <div *ngIf="message">
-  <Label>{{message}}</Label>
+    
 </div>
+
+<div *ngIf="message">
+    <Label>{{message}}</Label>
+    </div>

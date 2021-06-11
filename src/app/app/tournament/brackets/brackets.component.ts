@@ -73,17 +73,9 @@ export class BracketsComponent implements OnInit {
     
   }	
 
-  setwinner() {
-    if (this.completeRound){
-       console.log('Winner is' + this.winner);
-       this.message ='Winner is' + this.winner;
-    }
-
-  }
-
   setGames() {
     this.resetGames();
-    if (this.totalGames = 4) {
+    if (this.totalGames == 4) {
       this.game1.player1 = this.players[0];
       this.game1.player2 = this.players[1];
       console.log('Game 1 '+ this.game1.player1 +'  '+ this.game1.player2)
@@ -102,7 +94,7 @@ export class BracketsComponent implements OnInit {
       console.log('Game 4 '+ this.game4.player1 +'  '+ this.game4.player2)
 
       this.listOfGames = [this.game1,this.game2,this.game3,this.game4];
-    } else if (this.totalGames = 2){
+    } else if (this.totalGames == 2){
       this.game1.player1 = this.players[0];
       this.game1.player2 = this.players[1];
 
@@ -124,6 +116,7 @@ export class BracketsComponent implements OnInit {
     this.game3 = new Game();
     this.game4 = new Game();
   }
+
   completeRound() {
 
      console.log("this.game1.playerWon " + this.game1.playerWon);
@@ -162,15 +155,17 @@ export class BracketsComponent implements OnInit {
       this.setThirdRound();
       return true;
     }
-
+    console.log("totalGames is " +this.totalGames);
     if (this.totalGames == 1) {
       if (!this.game1.playerWon ) {
-        console.log("Set winner for the match");
-        this.message = 'Set winner for all match';
         return false;
       } 
       
       this.winner = this.game1.playerWon;
+      console.log("Winner is " + this.winner);
+      this.message = 'Winner is ' +this.winner;
+      this.players = [];
+      this.resetGames();
     }
     
     return true;
@@ -178,8 +173,5 @@ export class BracketsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-trackByFn(index: any, item: any) {
-   return index;
-}
 }
 
