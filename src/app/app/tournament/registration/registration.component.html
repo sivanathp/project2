@@ -1,15 +1,18 @@
 
 <h1>  Register Players</h1>
-
+<div *ngIf="message">
+    <Label>{{message}}</Label>
+  </div>
 <div *ngFor="let value of players; let i=index; trackBy:trackByFn">
     <input type="text" [(ngModel)]="players[i]" [placeholder]="['Contestant ' + i]" /><br/>
 </div>
+<br>
+
 <div>
     <button (click)="registerContestants()">Register Contestants</button>
-    <div *ngIf="message">
-  <Label>{{message}}</Label>
+    
 </div>
-</div>
+<br>
 
 <div>
 
