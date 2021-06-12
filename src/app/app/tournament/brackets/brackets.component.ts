@@ -95,9 +95,10 @@ export class BracketsComponent implements OnInit {
 
       this.listOfGames = [this.game1,this.game2,this.game3,this.game4];
     } else if (this.totalGames == 2){
+      this.game1 = new Game();
       this.game1.player1 = this.players[0];
       this.game1.player2 = this.players[1];
-      this.game1.playerWon = '';
+      
 
       this.game2.player1 = this.players[2];
       this.game2.player2 = this.players[3];

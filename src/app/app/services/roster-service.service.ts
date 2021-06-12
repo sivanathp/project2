@@ -17,9 +17,9 @@ export class RosterServiceService {
   addContestant(player: string) {
     if (player) {
          console.log('contestants are' + this.contestants);
-let foundPlayer= this.contestants.find(each => each === player);
+         let foundPlayer= this.contestants.find(each => each === player);
     if (foundPlayer) {
-      console.log('CAme to duplicate member');
+      console.log('Came to duplicate member');
       return false;
     }
     this.contestants.push(player);

@@ -2,8 +2,12 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BracketsComponent } from './brackets.component';
 
+import { Game } from './model/game';
+
+
 describe('BracketsComponent', () => {
   let component: BracketsComponent;
+  let game : Game;
   let fixture: ComponentFixture<BracketsComponent>;
 
   beforeEach(async(() => {
@@ -22,4 +26,7 @@ describe('BracketsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
+
 });

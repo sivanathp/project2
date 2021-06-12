@@ -2,13 +2,16 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RegistrationComponent } from './registration.component';
 
+import { RosterServiceService } from './../../services/roster-service.service';
+
 describe('RegistrationComponent', () => {
   let component: RegistrationComponent;
   let fixture: ComponentFixture<RegistrationComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RegistrationComponent ]
+      declarations: [ RegistrationComponent ], 
+      providers: [ RosterServiceService ]                             
     })
     .compileComponents();
   }));
@@ -23,7 +26,7 @@ describe('RegistrationComponent', () => {
     expect(component).toBeTruthy();
   });
   
-    it('should not allow 1 contestants', () => {
+  it('should not allow 1 contestants', () => {
    
     component.players = new Array('new one');
 	component.registerContestants();
@@ -47,6 +50,31 @@ describe('RegistrationComponent', () => {
     
   });
   
+
+  it('Empty players between valid players', () => {
+   
+    component.players = new Array('new one','Second', '','Three','','Four');
+	component.registerContestants();
+    expect(component.rosterService.getContestants().length).toEqual(4);   
+    
+  });
+
+  it('Should not allow duplicate players', () => {
+   
+    component.players = new Array('Second', '','Second','','Four');
+	component.registerContestants();
+    expect(component.rosterService.getContestants().filter.length).toEqual(1);   
+    
+  });
+
+  it('Should not allow empty players', () => {
+   
+    component.players = new Array('Second', '','Three','','Four','', 'One');
+	component.registerContestants();
+    expect(component.rosterService.getContestants().length).toEqual(4);   
+    
+  });
+
   it('should allow 2,4,8 contestants', () => {
    
     component.players = new Array('new one','Second');
