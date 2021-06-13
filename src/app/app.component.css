@@ -6,27 +6,32 @@
   background-color: grey;
 }
 
-ul {
+ol, ul {
   list-style-type: none;
-  overflow: hidden;
-  background-color: #333333;
-  margin: 0;
-  padding: 0;
-  
+  margin: 10px;
+	width: 900px;
+	font-family: sans-serif;
 }
 
 li {
-  float: left;
+  display:block;
+	width:120px;
+	float:left;
+	margin-left:2px;
+	
 }
 
-li a {
-  display: inline-block;
-  color: white;
-  text-align: center;
-  padding: 0 1em 0 0;
-  text-decoration: none;
+
+a{
+  display:block;
+	padding:3px;
+	text-decoration:underline;
+	background-color:#fff;
+	color:#009;
 }
 
 li a:hover {
-  background-color: #111111;
+  background-color:#009;
+	color:#fff;
 }
+
