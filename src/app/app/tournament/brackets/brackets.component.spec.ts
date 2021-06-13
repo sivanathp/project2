@@ -8,6 +8,7 @@ import { RegistrationComponent } from './../registration/registration.component'
 import { Game } from './model/game';
 
 import { RosterServiceService } from './../../services/roster-service.service';
+import { ExpectedConditions } from 'protractor';
 
 
 describe('BracketsComponent', () => {
@@ -30,12 +31,12 @@ describe('BracketsComponent', () => {
   beforeEach(() => {
     
     //rosterServiceService = TestBed.createComponent(RosterServiceService);
-    registrationFixture = TestBed.createComponent(RegistrationComponent);
-    registrationComponent = registrationFixture.componentInstance;
-    rosterServiceService = registrationFixture.debugElement.injector.get(RosterServiceService);
+    //registrationFixture = TestBed.createComponent(RegistrationComponent);
+    //registrationComponent = registrationFixture.componentInstance;
+    //rosterServiceService = registrationFixture.debugElement.injector.get(RosterServiceService);
     
-    registrationFixture.detectChanges();
-    fixture = TestBed.createComponent(new Type<BracketsComponent(rosterServiceService)>);
+    //registrationFixture.detectChanges();
+    fixture = TestBed.createComponent(BracketsComponent);
     
     component = fixture.componentInstance;
 
@@ -43,32 +44,73 @@ describe('BracketsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(rosterServiceService).toBeTruthy();
+  it('should create 2 players game', () => {
     expect(component).toBeTruthy();
-    expect(registrationComponent).toBeTruthy();
-  });
+    component.rosterService.addContestant('Player1');
+    component.rosterService.addContestant('Player2');
+    expect(component.rosterService.getContestants().length).toEqual(2);
+    component.setFirstRound();
+    expect(component.totalGames).toEqual(1);
+    });
 
-  it('8 contestants should have Four Games', () => {
+  it('8 contestants should have Four Games and 3 rounds', () => {
    
    
-    registrationComponent.players = new Array('new one','Second', 'Third','Four','Five','Six','Seven','Eight');
-    registrationComponent.registerContestants();
-  	expect(component.rosterService.getContestants().length).toEqual(8);
-     component.setFirstRound();
-     expect(component.totalGames).toEqual(4);
+    expect(component).toBeTruthy();
+    component.rosterService.addContestant('Player1');
+    component.rosterService.addContestant('Player2');
+    component.rosterService.addContestant('Player3');
+    component.rosterService.addContestant('Player4');
+    component.rosterService.addContestant('Player5');
+    component.rosterService.addContestant('Player6');
+    component.rosterService.addContestant('Player7');
+    component.rosterService.addContestant('Player8');
+    expect(component.rosterService.getContestants().length).toEqual(8);
+    component.setFirstRound();
+    expect(component.totalGames).toEqual(4);
 
+    component.game1.setWinner(component.game1.player1);
+    component.game2.setWinner(component.game2.player2);
+    component.game3.setWinner(component.game3.player1);
+    component.game4.setWinner(component.game4.player2);
+    component.completeRound();
+
+    expect(component.totalGames).toEqual(2);
+    component.game1.setWinner(component.game1.player1);
+    component.game2.setWinner(component.game2.player2);
+    component.completeRound();
+    expect(component.totalGames).toEqual(1);
+    component.game1.setWinner(component.game1.player1);
+    component.completeRound();
+    expect(component.winner).toEqual('Player1');
+    
+    
+    
+	
 	
   });
 
-  it('4 contestants should have Two Games', () => {
+  it('4 contestants should have Two Games and two rounds', () => {
    
    
-    registrationComponent.players = new Array('new one','Second', 'Third','Four');
-    registrationComponent.registerContestants();
-	expect(component.rosterService.getContestants().length).toEqual(4);
-     component.setFirstRound();
-     expect(component.totalGames).toEqual(2);
+    expect(component).toBeTruthy();
+    component.rosterService.addContestant('Player1');
+    component.rosterService.addContestant('Player2');
+    component.rosterService.addContestant('Player3');
+    component.rosterService.addContestant('Player4');
+    expect(component.rosterService.getContestants().length).toEqual(4);
+    component.setFirstRound();
+    expect(component.totalGames).toEqual(2);
+
+    component.game1.setWinner(component.game1.player1);
+    component.game2.setWinner(component.game2.player2);
+    component.completeRound();
+    expect(component.totalGames).toEqual(1);
+    component.game1.setWinner(component.game1.player1);
+    component.completeRound();
+    expect(component.winner).toEqual('Player1');
+
+   
 
 	
   });
