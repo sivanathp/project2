@@ -4,16 +4,16 @@
     </div>
 <div *ngIf="game1.player1">
     <div><Label>Match 1</Label></div>
-        <input type="radio" value=game1.player1 name = "game1" (click)="game1.setWinner(game1.player1)" required class="primary"  >{{game1.player1}}
-        <input type="radio" value=game1.player2 name = "game1" (click)="game1.setWinner(game1.player2)" required  >{{game1.player2}}
+        <input type="radio" value=game1.player1 name = "game1" (click)="game1.setWinner(game1.player1)" [checked]="(game1.player1 === game1.playerWon)" required class="primary"  >{{game1.player1}}
+        <input type="radio" value=game1.player2 name = "game1" (click)="game1.setWinner(game1.player2)" [checked]="(game1.player2 === game1.playerWon)"  required  >{{game1.player2}}
    
 </div>
 <br>
 
 <div *ngIf="game2.player1">
     <div><Label>Match 2</Label></div>
-        <input type="radio" value=game2.player1 name = "game2" (click)="game2.setWinner(game2.player1)" class="primary" >{{game2.player1}}
-        <input type="radio" value=game2.player2 name = "game2" (click)="game2.setWinner(game2.player2)" >{{game2.player2}}
+        <input type="radio" value=game2.player1 name = "game2" (click)="game2.setWinner(game2.player1)" [checked]="(game2.player1 === game2.playerWon)" class="primary" >{{game2.player1}}
+        <input type="radio" value=game2.player2 name = "game2" (click)="game2.setWinner(game2.player2)" [checked]="(game2.player2 === game2.playerWon)">{{game2.player2}}
     <br>
 </div>
 
