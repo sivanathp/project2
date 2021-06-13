@@ -1,8 +1,8 @@
 <h1>Round number {{roundNumber}}</h1>
 <div *ngIf="message">
-    <Label>{{message}}</Label>
+    <h2>{{message}}</h2>
     </div>
-<div *ngIf="game1.player1">
+<div *ngIf="game1Exists">
     <div><Label>Match 1</Label></div>
         <input type="radio" value=game1.player1 name = "game1" (click)="game1.setWinner(game1.player1)" [checked]="(game1.player1 === game1.playerWon)" required class="primary"  >{{game1.player1}}
         <input type="radio" value=game1.player2 name = "game1" (click)="game1.setWinner(game1.player2)" [checked]="(game1.player2 === game1.playerWon)"  required  >{{game1.player2}}
@@ -10,7 +10,7 @@
 </div>
 <br>
 
-<div *ngIf="game2.player1">
+<div *ngIf="game2Exists">
     <div><Label>Match 2</Label></div>
         <input type="radio" value=game2.player1 name = "game2" (click)="game2.setWinner(game2.player1)" [checked]="(game2.player1 === game2.playerWon)" class="primary" >{{game2.player1}}
         <input type="radio" value=game2.player2 name = "game2" (click)="game2.setWinner(game2.player2)" [checked]="(game2.player2 === game2.playerWon)">{{game2.player2}}
@@ -19,7 +19,7 @@
 
 <br>
 
-<div *ngIf="game3.player1">
+<div *ngIf="game3Exists">
     <div><Label>Match 3</Label></div>
         <input type="radio" value=game3.player1 name = "game3" (click)="game3.setWinner(game3.player1)" class="primary"  ng-model="game3.playerWon">{{game3.player1}}
         <input type="radio" value=game3.player2 name = "game3"  (click)="game3.setWinner(game3.player2)"  ng-model="game3.playerWon">{{game3.player2}}
@@ -27,7 +27,7 @@
 </div>
 <br>
 
-<div  *ngIf="game4.player1">
+<div  *ngIf="game4Exists">
     <div><Label>Match 4</Label></div>
    
         <input type="radio" value=game4.player1 name = "game4"  (click)="game4.setWinner(game4.player1)"  class="primary" ng-model="game4.playerWon" >{{game4.player1}}
