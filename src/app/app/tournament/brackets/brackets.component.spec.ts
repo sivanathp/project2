@@ -51,6 +51,9 @@ describe('BracketsComponent', () => {
     expect(component.rosterService.getContestants().length).toEqual(2);
     component.setFirstRound();
     expect(component.totalGames).toEqual(1);
+    component.game1.setWinner(component.game1.player1);
+    component.completeRound();
+    expect(component.winner).toEqual('Player1');
     });
 
   it('8 contestants should have Four Games and 3 rounds', () => {

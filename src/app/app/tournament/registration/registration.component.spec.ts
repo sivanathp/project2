@@ -56,6 +56,10 @@ describe('RegistrationComponent', () => {
     component.players = new Array('new one','Second', '','Three','','Four');
 	component.registerContestants();
     expect(component.rosterService.getContestants().length).toEqual(4);   
+    expect(component.rosterService.getContestants()[0]).toEqual('new one');  
+    expect(component.rosterService.getContestants()[1]).toEqual('Second');  
+    expect(component.rosterService.getContestants()[2]).toEqual('Three');  
+    expect(component.rosterService.getContestants()[3]).toEqual('Four');  
     
   });
 
@@ -72,6 +76,10 @@ describe('RegistrationComponent', () => {
     component.players = new Array('Second', '','Three','','Four','', 'One');
 	component.registerContestants();
     expect(component.rosterService.getContestants().length).toEqual(4);   
+    expect(component.rosterService.getContestants()[0]).toEqual('Second');  
+    expect(component.rosterService.getContestants()[1]).toEqual('Three');  
+    expect(component.rosterService.getContestants()[2]).toEqual('Four');  
+    expect(component.rosterService.getContestants()[3]).toEqual('One'); 
     
   });
 
@@ -80,14 +88,28 @@ describe('RegistrationComponent', () => {
     component.players = new Array('new one','Second');
 	component.registerContestants();
 	expect(component.rosterService.getContestants().length).toEqual(2);   
+  expect(component.rosterService.getContestants()[0]).toEqual('new one');  
+  expect(component.rosterService.getContestants()[1]).toEqual('Second');  
 	
 	component.players = new Array('new one','Second', 'Third','Four');
     component.registerContestants();
-	expect(component.rosterService.getContestants().length).toEqual(4);   
+	expect(component.rosterService.getContestants().length).toEqual(4);  
+  expect(component.rosterService.getContestants()[0]).toEqual('new one');  
+  expect(component.rosterService.getContestants()[1]).toEqual('Second');  
+  expect(component.rosterService.getContestants()[2]).toEqual('Third');  
+  expect(component.rosterService.getContestants()[3]).toEqual('Four');   
 	
 	component.players = new Array('new one','Second', 'Third','Four','Five','Six','Seven','Eight');
     component.registerContestants();
 	expect(component.rosterService.getContestants().length).toEqual(8);   
+  expect(component.rosterService.getContestants()[0]).toEqual('new one');  
+  expect(component.rosterService.getContestants()[1]).toEqual('Second');  
+  expect(component.rosterService.getContestants()[2]).toEqual('Third');  
+  expect(component.rosterService.getContestants()[3]).toEqual('Four');  
+  expect(component.rosterService.getContestants()[4]).toEqual('Five');  
+  expect(component.rosterService.getContestants()[5]).toEqual('Six');  
+  expect(component.rosterService.getContestants()[6]).toEqual('Seven');  
+  expect(component.rosterService.getContestants()[7]).toEqual('Eight');  
 	
   });
 });
